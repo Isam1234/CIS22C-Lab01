@@ -2,7 +2,7 @@
 #include "Currency.h"
 class Wallet
 {
-	Currency *Curr[ARRAY_SIZE];
+	Currency Curr[ARRAY_SIZE];
 public:
 	Currency & operator[] (const int index);
 	int moneyAmount();
