@@ -17,7 +17,7 @@ int main() {
 	w[YUAN] = *(currency[YUAN]);
 	w[RUPEE] = *(currency[RUPEE]);
 	w[YEN] = *(currency[YEN]);
-	string in; 
+	string in;
 	while (true) {
 		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "\t\t\tWallet" << endl;
@@ -37,10 +37,10 @@ int main() {
 			cout << "---------------------------" << endl;
 			cout << "Currency Held: " << endl;
 			cout << "Dollars: " << w[DOLLAR] << endl;
-			cout << "Yen:     " << w[EURO] << endl;
-			cout << "Euro:    " << w[YUAN] << endl;
+			cout << "Euros:   " << w[EURO] << endl;
+			cout << "Yen :    " << w[YEN] << endl;
 			cout << "Rupee:   " << w[RUPEE] << endl;
-			cout << "Yuan:    " << w[YEN] << endl;
+			cout << "Yuan:    " << w[YUAN] << endl;
 
 		}
 		if (choice == '2') {
@@ -49,10 +49,10 @@ int main() {
 				cout << "---------------------------" << endl;
 				cout << "Currency Held: " << endl;
 				cout << "Dollars: " << w[DOLLAR] << endl;
-				cout << "Yen:     " << w[EURO] << endl;
-				cout << "Euro:    " << w[YUAN] << endl;
+				cout << "Euros:   " << w[EURO] << endl;
+				cout << "Yen:     " << w[YEN] << endl;
 				cout << "Rupee:   " << w[RUPEE] << endl;
-				cout << "Yuan:    " << w[YEN] << endl;
+				cout << "Yuan:    " << w[YUAN] << endl;
 
 				string type;
 				int amnt;
@@ -107,10 +107,10 @@ int main() {
 			cout << "---------------------------" << endl;
 			cout << "Currency Held: " << endl;
 			cout << "Dollars: " << w[DOLLAR] << endl;
-			cout << "Yen:     " << w[EURO] << endl;
-			cout << "Euro:    " << w[YUAN] << endl;
+			cout << "Euros:   " << w[EURO] << endl;
+			cout << "Yen:     " << w[YEN] << endl;
 			cout << "Rupee:   " << w[RUPEE] << endl;
-			cout << "Yuan:    " << w[YEN] << endl;
+			cout << "Yuan:    " << w[YUAN] << endl;
 
 			string type;
 			int amnt;
@@ -175,39 +175,39 @@ int main() {
 				w.empty(EURO);
 				break;
 			case '3':
-				w.empty(YUAN);
+				w.empty(YEN);
 				break;
 			case '4':
 				w.empty(RUPEE);
 				break;
 			case '5':
-				w.empty(YEN);
+				w.empty(YUAN);
 				break;
 			case '6':
 				w.empty(DOLLAR);
 				w.empty(EURO);
-				w.empty(YUAN);
-				w.empty(RUPEE);
 				w.empty(YEN);
+				w.empty(RUPEE);
+				w.empty(YUAN);
 				break;
 			}
 			cout << "---------------------------" << endl;
 			cout << "Currency Held: " << endl;
 			cout << "Dollars: " << w[DOLLAR] << endl;
-			cout << "Yen:     " << w[EURO] << endl;
-			cout << "Euro:    " << w[YUAN] << endl;
+			cout << "Euro:    " << w[EURO] << endl;
+			cout << "Yen:     " << w[YEN] << endl;
 			cout << "Rupee:   " << w[RUPEE] << endl;
-			cout << "Yuan:    " << w[YEN] << endl;
+			cout << "Yuan:    " << w[YUAN] << endl;
 
 		}
 		else if (choice == '5') {
 			cout << "---------------------------" << endl;
 			cout << "Currency Held: " << endl;
 			cout << "Dollars: " << w[DOLLAR] << endl;
-			cout << "Yen:     " << w[EURO] << endl;
-			cout << "Euro:    " << w[YUAN] << endl;
+			cout << "Euros:   " << w[EURO] << endl;
+			cout << "Yen:     " << w[YEN] << endl;
 			cout << "Rupee:   " << w[RUPEE] << endl;
-			cout << "Yuan:    " << w[YEN] << endl;
+			cout << "Yuan:    " << w[YUAN] << endl;
 
 		}
 		else if (choice == '6') {
