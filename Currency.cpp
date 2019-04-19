@@ -51,11 +51,11 @@ Currency operator - (Currency const &c1, Currency const &c2) {
 	Currency cur;
 	if (c1.Whole < c2.Whole) {
 
-		std::cout << "Error!!! There are no suficient money" << std::endl;
+		std::cout << "Error!!! There is not suficient money" << std::endl;
 	}
 	else if (c1.Whole == c2.Whole && c1.Fract < c2.Fract) {
 
-		std::cout << "Error!!! There are no suficient money" << std::endl;
+		std::cout << "Error!!! There is not suficient money" << std::endl;
 	}
 	else {
 		cur.Whole = c1.Whole - c2.Whole;
