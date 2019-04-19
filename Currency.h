@@ -13,9 +13,9 @@ typedef enum
 
 class Currency
 {
-	std::string Cur;			
-	int Whole;					
-	int Fract;					
+	std::string Cur;
+	int Whole;
+	int Fract;
 	std::string Coin;
 public:
 	Currency() {}
@@ -24,10 +24,10 @@ public:
 	virtual ~Currency();
 	void empty();
 	bool is_Empty();
+	friend std::istream& operator>>(std::istream& in, Currency &c1);
+	friend std::ostream& operator<<(std::ostream& out, const Currency &c2);
 	friend Currency operator + (Currency const &c1, Currency const &c2);
 	friend Currency operator - (Currency const &c1, Currency const &c2);
-	friend std:: istream& operator>>(std::istream& in, Currency &c1);
-	friend std::ostream& operator<<(std::ostream& out, const Currency &c2);
 };
 
 class Yuan : public Currency
