@@ -1,67 +1,43 @@
-#pragma once
-#include <iostream>
+#ifndef CURRENCY_H
+#define CURRENCY_H
+
 #include <string>
-int const ARRAY_SIZE = 5;
-typedef enum
-{
-	DOLLAR,
-	EURO,
-	YUAN,
-	RUPEE,
-	YEN,
-} currencyType;
+#include <iostream>
 
 class Currency
 {
-	std::string Cur;
-	int Whole;
-	int Fract;
-	std::string Coin;
-public:
-	Currency() {}
-	Currency(std::string cn, int w, int f, std::string c) :
-		Cur(cn), Whole(w), Fract(f), Coin(c) {}
-	virtual ~Currency();
-	void empty();
-	bool is_Empty();
-	friend std::istream& operator>>(std::istream& in, Currency &c1);
-	friend std::ostream& operator<<(std::ostream& out, const Currency &c2);
-	friend Currency operator + (Currency const &c1, Currency const &c2);
-	friend Currency operator - (Currency const &c1, Currency const &c2);
-};
-
-class Yuan : public Currency
-{
-public:
-	Yuan() : Currency("Yuan", 0, 0, "Fen") {}
-	~Yuan() {}
-};
-
-class Yen :public Currency
-{
-public:
-	Yen() : Currency("Yen", 0, 0, "Sen") {}
-	~Yen() {}
-};
-
-class Euro :public Currency
-{
-public:
-	Euro() : Currency("Euro", 0, 0, "Cent") {}
-	~Euro() {}
-};
-
-class Dollar : public Currency
-{
-public:
-	Dollar() : Currency("Dollar", 0, 0, "Cent") {}
-	~Dollar() {}
-};
-
-class Rupee : public Currency
-{
-public:
-	Rupee() : Currency("Rupee", 0, 0, "Paise") {}
-	~Rupee() {}
 private:
+	std::string wholeName;			// Name of Whole Part
+	std::string fractName;			// Name of Fractional Part
+
+protected:
+	unsigned wholeVal,				// Value of Whole Part
+		fractVal;					// Value of Fractional Part
+
+public:
+	// Constructor
+	Currency(std::string, std::string, unsigned, unsigned);
+	Currency(std::string, std::string);
+
+	// Mutators
+	void setWholeName(std::string);
+	void setFractName(std::string);
+	void setWholeVal(const unsigned);
+	void setFractVal(const unsigned);
+	void setZero();
+
+	// Accessors
+	std::string getWholeName() const;
+	std::string getFractName() const;
+	unsigned getWholeVal() const;
+	double getFractVal() const;
+
+	bool isZero() const;
+
+	// Update whole and fractional parts
+	virtual void updateCurrencyVal() = 0;
+
+
 };
+
+#endif
