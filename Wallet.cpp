@@ -1,62 +1,120 @@
-#include <iostream>
-#include <string>
-#include "Wallet.h" 
-#include "Currency.h" 
-using namespace std;
 
-Currency& Wallet::operator[] (const int i)
+#include "Wallet.h"
+
+#include <random>
+
+Wallet::Wallet()
 {
-	return Curr[i];
+	std::random_device rd;
+
+	cPtr[DOLLAR] = new Dollar;
+	cPtr[DOLLAR]->setFractVal(rd() % 100);
+	cPtr[DOLLAR]->setWholeVal(rd() % 100);
+
+	cPtr[RUPEE] = new Rupee;
+	cPtr[RUPEE]->setFractVal(rd() % 100);
+	cPtr[RUPEE]->setWholeVal(rd() % 100);
+
+	cPtr[EURO] = new Euro;
+	cPtr[EURO]->setFractVal(rd() % 100);
+	cPtr[EURO]->setWholeVal(rd() % 100);
+
+	cPtr[YEN] = new Yen;
+	cPtr[YEN]->setFractVal(rd() % 100);
+	cPtr[YEN]->setWholeVal(rd() % 100);
+
+	cPtr[YUAN] = new Yuan;
+	cPtr[YUAN]->setFractVal(rd() % 100);
+	cPtr[YUAN]->setWholeVal(rd() % 100);
 }
 
-int Wallet::moneyAmount()
+Wallet::~Wallet()
 {
-	bool f = false;
-	int n = 0;
-	for (int i = 0; i < ARRAY_SIZE; i++)
+	delete cPtr;
+}
+
+
+int Wallet::numOfCurrencies() const
+{
+	unsigned currencyCount = 0;
+	
+	for (int i = 0; i < 6; i++)
 	{
-		f = Curr[i].is_Empty();
-		if (!f) {
-			n++;
-		}
-
+		if (!cPtr[i]->isZero())
+			currencyCount++;
 	}
-	return n;
+
+	return currencyCount;
 }
 
-void Wallet::gain(int curType, int w, int f)
+bool Wallet::checkCurrencyExist(Wallet::currencyFlag flag)
 {
-	Currency tmp1("", w, f, "");
-	Curr[curType] = (Curr[curType] + tmp1);
-}
+	if (cPtr[flag]->isZero())
+		return true;
+	else
+		return false;
 
-void Wallet::spend(int curType, int w, int f)
+}
+void Wallet::addMoney(Wallet::currencyFlag flag, const double x)
 {
-	Currency tmp1("", w, f, "");
-	Curr[curType] = (Curr[curType] - tmp1);
+	double fract, whole;
+
+	// Extract whole and fractional parts
+	fract = modf(x, &whole);
+	fract *= 100;
+	fract = round(fract);
+
+	// Whole part
+	cPtr[flag]->setWholeVal(cPtr[flag]->getWholeVal() + static_cast<unsigned>(whole));
+
+	// Fractional part
+	cPtr[flag]->setFractVal(cPtr[flag]->getFractVal() + static_cast<unsigned>(fract));
+
+	// Update currency values
+	cPtr[flag]->updateCurrencyVal();
+}
+void Wallet::subtractMoney(Wallet::currencyFlag flag, const double x)
+{
+	double fract, whole;
+
+	// Extract whole and fractional parts
+	fract = modf(x, &whole);
+	fract *= 100;
+	fract = round(fract);
+
+	// Whole part
+	cPtr[flag]->setWholeVal(cPtr[flag]->getWholeVal() - static_cast<unsigned>(whole));
+
+	// Fractional part
+	cPtr[flag]->setFractVal(cPtr[flag]->getFractVal() - static_cast<unsigned>(fract));
+
+	// Update currency values
+	cPtr[flag]->updateCurrencyVal();
 }
 
-
-bool Wallet::moneyAvailable(int cType) {
-	return !Curr[cType].is_Empty();
+double Wallet::getMoney(Wallet::currencyFlag flag)
+{
+	double currencyValue = cPtr[flag]->getWholeVal() + (cPtr[flag]->getFractVal() / 100);
+	return currencyValue;
 }
 
-
-bool Wallet::isWalletEmpty() {
-	bool f = false;
-	for (int i = 0; i < ARRAY_SIZE; i++)
+void Wallet::emptyWallet()
+{
+	for (int i = 0; i < 6; i++)
 	{
-		f = Curr[i].is_Empty();
-		if (!f) {
-			return f;
-		}
+		cPtr[i]->setZero();
 	}
-	return true;
 }
+bool Wallet::checkIfEmpty()
+{
+	bool empty = true;
 
-void Wallet::empty(int curType) {
-	for (int i = 0; i < ARRAY_SIZE; i++)
+	int i = 0;
+	while (i < 6 && empty)
 	{
-		Curr[curType].empty();
+		if (!cPtr[i]->isZero())
+			empty = false;
 	}
+	
+	return empty;
 }
