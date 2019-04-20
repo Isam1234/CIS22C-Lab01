@@ -1,22 +1,41 @@
+//************************************************************************************
+//  Lab 1 - Wallet Program
+//  Isa Muran (+1) & Laurie Hupman
+//
+//  
+//  Program to simulate a wallet while on a foreign trip.  The wallet holds five
+//    types of foreign currency:  dollars, euros, yen, rupees and yuan.  It will
+//    display how much of each type of currency is currently available, add, subtract,
+//    and empty the contents.
+//
+//*************************************************************************************
+
 #include "Wallet.h"
 #include "Currency.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
-int main() {
+int main() 
+
+{
+	// Define the currency class
 	Currency *currency[ARRAY_SIZE];
 	currency[DOLLAR] = new Dollar();
 	currency[EURO] = new Euro();
 	currency[YUAN] = new Yuan();
 	currency[RUPEE] = new Rupee();
 	currency[YEN] = new Yen();
+
+	// Define the wallet class
 	Wallet w;
 	w[DOLLAR] = *(currency[DOLLAR]);
 	w[EURO] = *(currency[EURO]);
 	w[YUAN] = *(currency[YUAN]);
 	w[RUPEE] = *(currency[RUPEE]);
 	w[YEN] = *(currency[YEN]);
+
+	// The main menu
 	string in;
 	while (true) {
 		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
@@ -33,6 +52,8 @@ int main() {
 		cout << "---------------------------" << endl;
 		cout << "Enter Choice(1,2,3,4,5,6):";
 		cin >> choice;
+		
+		// Display the contents of the wallet
 		if (choice == '1') {
 			cout << "---------------------------" << endl;
 			cout << "Currency Held: " << endl;
@@ -43,6 +64,8 @@ int main() {
 			cout << "Yuan:    " << w[YUAN] << endl;
 
 		}
+		
+		// Add money to the wallet
 		if (choice == '2') {
 			char choice2 = 'y';
 			do {
@@ -103,6 +126,8 @@ int main() {
 			} while (choice2 == 'y' || choice2 == 'Y');
 			choice2 = 'y';
 		}
+
+		// Subtract money from the wallet
 		else if (choice == '3') {
 			cout << "---------------------------" << endl;
 			cout << "Currency Held: " << endl;
@@ -157,13 +182,15 @@ int main() {
 				cout << "Choice not recognized" << endl;
 			}
 		}
+
+		// Empty part or all of the wallet
 		else if (choice == '4') {
 			char choice3;
 			cout << "(1)Dollars" << endl;
 			cout << "(2)Euro   " << endl;
-			cout << "(3)Yuan   " << endl;
+			cout << "(3)Yen    " << endl;
 			cout << "(4)Rupee  " << endl;
-			cout << "(5)Yen    " << endl;
+			cout << "(5)Yuan   " << endl;
 			cout << "(6)All    " << endl;
 			cout << "Enter which Currency type you wish to zero out: ";
 			cin >> choice3;
@@ -210,9 +237,13 @@ int main() {
 			cout << "Yuan:    " << w[YUAN] << endl;
 
 		}
+
+		// Exit the program
 		else if (choice == '6') {
-			break;
+		break;
 		}
+
+		// Error for invalid choice
 		else {
 			cout << "choice not recognized :))" << endl;
 		}
