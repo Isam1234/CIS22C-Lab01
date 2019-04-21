@@ -1,11 +1,19 @@
+/*
+******************************************
+*           Psuedocode Rupee.h          *
+******************************************
+Definition for the Dollar subclass
+
+*/
 #ifndef RUPEE_H
 #define RUPEE_H
 
 #include "Currency.h"
+#include <string>
 
 using namespace std;
 
-//Dinar class inherited form currency class
+// Rupee class inherited from currency class
 class Rupee : public Currency
 {
 private:
@@ -25,7 +33,7 @@ public:
 	void updateCurrencyVal();
 
 	// Overloaded Operators
-	Rupee operator + (const Rupee &x);
+	Rupee operator + (const Rupee &);
 	Rupee operator + (const double);
 	Rupee operator - (const Rupee &);
 	Rupee operator - (const double);
@@ -37,3 +45,4 @@ public:
 };
 
 #endif
+#pragma once

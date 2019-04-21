@@ -1,10 +1,22 @@
-
+/*
+*****************************************
+*
+*       Lab 1 - Wallet Program
+*          Isa Muran (+1)
+*          Laurie Hupman
+*
+****************************************/
 #include <iostream>
 #include <iomanip>
 #include "Wallet.h"
 
 using namespace std;
 
+/*
+*****************************************
+*        Function protocols
+*****************************************
+*/
 void addMoney(Wallet&);
 void subtractMoney(Wallet&);
 void viewWallet(Wallet&);
@@ -15,7 +27,7 @@ void emptyWallet(Wallet&);
 *           Psuedocode Main              *
 ******************************************
 Declare varibles to input choice from user
-Diplay menu and take user input 
+Diplay menu and take user input
 Switch to perform user request
 if choice is 1
 call add money function
@@ -24,7 +36,7 @@ call subtract money function
 if choice is 3
 call function that display money
 if choice is 4
-call function which removes all money 
+call function which removes all money
 if choice is 5
 close program
 else
@@ -47,10 +59,10 @@ int main()
 		cout << "	 3: View Wallet" << endl;
 		cout << "	 4: Empty Wallet" << endl;
 		cout << "	 5: EXIT" << endl << endl;
-		cout << "	 Choice: ";
+		cout << "	 Enter your choice: ";
 
 		cin >> choice;
-		
+
 
 		switch (choice)
 		{
@@ -91,7 +103,7 @@ int main()
 		system("cls"); //clear screen 
 
 	}
-	
+
 	return 0;
 }
 
@@ -134,7 +146,7 @@ void addMoney(Wallet &myWallet)
 
 		double currency = 0;
 
-		cout << endl << "	***Add Money***" << endl << endl
+		cout << endl << "	***Add Money to your wallet***" << endl << endl
 			<< "	 1: Dollar" << endl
 			<< "	 2: Rupee" << endl
 			<< "	 3: Euro" << endl
@@ -238,7 +250,7 @@ void subtractMoney(Wallet &myWallet)
 
 		double currency = 0;
 
-		cout << endl << "	***Subtract Money***" << endl << endl
+		cout << endl << "	***Subtract Money from your wallet***" << endl << endl
 			<< "	 1: Dollar" << endl
 			<< "	 2: Rupee" << endl
 			<< "	 3: Euro" << endl
@@ -322,9 +334,9 @@ void viewWallet(Wallet &myWallet)
 void emptyWallet(Wallet &myWallet)
 {
 	cout << endl << "	***Emptying Wallet...***" << endl;
-	
+
 	myWallet.emptyWallet();
-	
+
 	cout << endl << "	***Wallet Emptied***" << endl;
 
 	system("pause");

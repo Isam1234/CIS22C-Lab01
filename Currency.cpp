@@ -1,4 +1,11 @@
+/*
+******************************************
+*       Psuedocode Currency.cpp          *
+******************************************
+Mutators and accessors
+- 
 
+*/
 #include "Currency.h"
 
 using namespace std;
@@ -34,8 +41,8 @@ void Currency::setFractVal(const unsigned fV)
 }
 void Currency::setZero()
 {
-	wholeVal = 0;
-	fractVal = 0;
+	//wholeVal = 0;
+	//fractVal = 0;
 }
 
 // Accessors

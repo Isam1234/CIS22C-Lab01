@@ -1,12 +1,19 @@
+/*
+******************************************
+*           Psuedocode Yen.h          *
+******************************************
+Definition for the Dollar subclass
 
+*/
 #ifndef YEN_H
 #define YEN_H
 
 #include "Currency.h"
+#include <string>
 
 using namespace std;
 
-//Peso class inherited form currency class
+// Yen class inherited from currency class
 class Yen : public Currency
 {
 private:
@@ -37,3 +44,4 @@ public:
 };
 
 #endif
+#pragma once

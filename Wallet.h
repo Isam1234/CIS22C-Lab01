@@ -1,4 +1,10 @@
+/*
+******************************************
+*           Psuedocode Wallet.h          *
+******************************************
+Definitions for the Wallet class
 
+*/
 #ifndef WALLET_H
 #define WALLET_H
 
@@ -20,7 +26,7 @@ private:
 
 public:
 
-	//enumertaors to hold currency types
+	//enumerators to hold currency types
 	static enum currencyFlag
 	{
 		DOLLAR,
@@ -47,3 +53,4 @@ public:
 };
 
 #endif
+#pragma once

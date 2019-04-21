@@ -1,4 +1,10 @@
+/*
+******************************************
+*           Psuedocode Dollar.h          *
+******************************************
+Definition for the Dollar subclass
 
+*/
 #ifndef DOLLAR_H
 #define DOLLAR_H
 
@@ -7,7 +13,7 @@
 
 using namespace std;
 
-//Dollar class inherited form currency class
+// Dollar class inherited from currency class
 class Dollar : public Currency
 {
 private:
@@ -42,3 +48,4 @@ public:
 };
 
 #endif
+#pragma once

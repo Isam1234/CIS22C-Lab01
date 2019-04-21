@@ -1,11 +1,19 @@
+/*
+******************************************
+*           Psuedocode Yuan.h          *
+******************************************
+Definition for the Dollar subclass
 
-#ifndef POUND_H
-#define POUND_H
+*/
+#ifndef YUAN_H
+#define YUAN_H
 
 #include "Currency.h"
+#include <string>
+
 using namespace std;
 
-//Pound class inherited form currency class
+// Yuan class inherited from currency class
 class Yuan : public Currency
 {
 private:
@@ -37,3 +45,4 @@ public:
 };
 
 #endif
+#pragma once

@@ -1,4 +1,18 @@
+/*
+******************************************
+*           Psuedocode Dollar.cpp          *
+******************************************
+Roll fractional parts of currency into whole parts
+Update whole and fractional values
+Return new currency values
+Add money to currency
+Return new currency values
+Subtract money from currency
+Return new currency values
+Check amount
+Return amount
 
+*/
 #include "Dollar.h"
 #include <cmath>
 

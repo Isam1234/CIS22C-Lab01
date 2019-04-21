@@ -1,3 +1,10 @@
+/*
+******************************************
+*           Psuedocode Currency.h        *
+******************************************
+Definitions for the Currency class
+
+*/
 #ifndef CURRENCY_H
 #define CURRENCY_H
 
@@ -41,3 +48,4 @@ public:
 };
 
 #endif
+#pragma once

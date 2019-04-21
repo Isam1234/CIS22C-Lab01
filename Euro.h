@@ -1,11 +1,19 @@
+/*
+******************************************
+*           Psuedocode Euro.h          *
+******************************************
+Definition for the Dollar subclass
+
+*/
 #ifndef EURO_H
 #define EURO_H
 
 #include "Currency.h"
+#include <string>
 
 using namespace std;
 
-//Pound class inherited form currency class
+// Euro class inherited from currency class
 class Euro : public Currency
 {
 private:
@@ -38,3 +46,4 @@ public:
 };
 
 #endif
+#pragma once

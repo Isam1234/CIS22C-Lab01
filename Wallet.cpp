@@ -1,4 +1,15 @@
-
+/*
+******************************************
+*           Psuedocode Wallet.cpp        *
+******************************************
+Define array of pointers to currencies
+- Deconstructor
+Perform menu functions for wallet operations
+- add money
+- subtract money
+- show contents of wallet
+- empty wallet
+*/
 #include "Wallet.h"
 
 #include <random>
@@ -37,7 +48,7 @@ Wallet::~Wallet()
 int Wallet::numOfCurrencies() const
 {
 	unsigned currencyCount = 0;
-	
+
 	for (int i = 0; i < 6; i++)
 	{
 		if (!cPtr[i]->isZero())
@@ -103,6 +114,7 @@ void Wallet::emptyWallet()
 	for (int i = 0; i < 6; i++)
 	{
 		cPtr[i]->setZero();
+		i = i + 1;
 	}
 }
 bool Wallet::checkIfEmpty()
@@ -115,6 +127,6 @@ bool Wallet::checkIfEmpty()
 		if (!cPtr[i]->isZero())
 			empty = false;
 	}
-	
+
 	return empty;
 }
