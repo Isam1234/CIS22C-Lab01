@@ -34,10 +34,15 @@ void Rupee::updateCurrencyVal()
 {
 	if (fractVal > 100)
 	{
-		wholeVal += fractVal / 1000;
+		wholeVal += fractVal / 100;
 
-		fractVal = fractVal % 1000;
+		fractVal = fractVal % 100;
 	}
+	else if (fractVal < 0)
+	{
+		wholeVal -= 1;
+		fractVal += 100;
+}
 }
 
 //Operator overload implementation
