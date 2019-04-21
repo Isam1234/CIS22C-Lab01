@@ -42,7 +42,12 @@ close program
 else
 display error
 */
-
+/*
+Psuedocode for the main: 
+create a wallet object
+initiate a menu that will take a choice from the user
+That choice will let them add money or take away money or view/empty the wallet.
+*/
 int main()
 {
 	Wallet myWallet;
@@ -92,6 +97,7 @@ int main()
 
 		case 5:
 			loop = true;
+			delete myWallet;
 			break;
 
 		default:
@@ -134,7 +140,11 @@ return to previous menu
 else
 display error
 */
-
+/*
+Psuedocode for addition:
+create a menu that will ask the user to enter the currency of their choice and the amount they want to add.
+once they have done so, tell them that you have added to the wallet and display the menu once mroe.
+*/
 void addMoney(Wallet &myWallet)
 {
 
@@ -239,7 +249,13 @@ return to previous menu
 else
 display error
 */
-
+/*
+Psuedocode for subtraction:
+create a menu that will allow a user to enter their desired currency and desired amount to take away.
+check to see if the user has that much money in his wallet to subtract and subtract if the conditions are met.
+once you have prompted that the subtraction has happened, feed the user back into the choice that they want for 
+their desired currency.
+*/
 void subtractMoney(Wallet &myWallet)
 {
 	bool loop = false;
@@ -315,21 +331,25 @@ void subtractMoney(Wallet &myWallet)
 
 	}
 }
-
+/*
+Psuedocode for view function:
+Display the contents of the wallet to the user's screen.
+pretty simple.
+*/
 //Get values from wallet class and display them on screen
 void viewWallet(Wallet &myWallet)
 {
-	cout << endl << "	***Viewing Wallet***" << endl << endl
-		<< "	 1: Dollars: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::DOLLAR) << "\n"
-		<< "	 2: Rupee: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::RUPEE) << "\n"
-		<< "	 3: Euro: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::EURO) << "\n"
-		<< "	 4: Yen: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::YEN) << "\n"
-		<< "	 5: Yuan: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::YUAN) << "\n"
+	cout << endl << "\t\t~Viewing Wallet~" << endl << endl
+		<< "\t1: Dollars: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::DOLLAR) << "\n"
+		<< "\t2: Rupee: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::RUPEE) << "\n"
+		<< "\t3: Euro: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::EURO) << "\n"
+		<< "\t4: Yen: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::YEN) << "\n"
+		<< "\t5: Yuan: " << fixed << setprecision(2) << myWallet.getMoney(Wallet::YUAN) << "\n"
 		<< endl << endl;
 
 	system("pause");
 }
-
+// Psuedocode for empty function: Call the empty wallet function and tell the user when the wallet is emptied.
 //Calls function from wallet class to set all values to zero
 void emptyWallet(Wallet &myWallet)
 {
