@@ -38,6 +38,11 @@ void Dollar::updateCurrencyVal()
 
 		fractVal = fractVal % 100;
 	}
+	else if (fractVal < 0)
+	{
+		wholeVal -= 1;
+		fractVal += 100;
+}
 }
 
 //Operator overload implementation
