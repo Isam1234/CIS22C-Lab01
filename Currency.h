@@ -12,7 +12,7 @@ Definitions for the Currency class
 #include <iostream>
 /*
 Psuedocode for currency class:
-The currency class will have values that can only be accessed by methods 
+The currency class will have values that can only be accessed by methods
 these attributes will be name, amount in whole, amount in fraction, and fraction name
 The class needs constructors, one default, one with parameters.
 The setters will take an argument that will be used for setting values in the class.
@@ -53,4 +53,4 @@ public:
 };
 
 #endif
-#pragma once
+

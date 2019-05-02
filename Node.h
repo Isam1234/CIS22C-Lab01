@@ -1,7 +1,8 @@
 // Template for the Node class
 
-#ifndef Node.h
-#define Node.h
+#ifndef NODE_H
+#define NODE_H
+
 #include <iostream>
 
 using namespace std;
@@ -84,4 +85,4 @@ Node <ItemType>* Node <ItemType> ::getNext() const
 }
 
 #endif
-#pragma once
+

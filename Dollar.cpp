@@ -16,17 +16,17 @@ Return amount
 #include "Dollar.h"
 #include <cmath>
 /*Psuedocode for general Currency type:
-update the currency when the fractional part is either above 99 or below 0 
+update the currency when the fractional part is either above 99 or below 0
 create an addition operator that creates a new object and sets the input amount into the values
 of the new object and then adds the object to the existing class.
-The addition operator will also modify objects' types into types that can be used for combining whole values 
+The addition operator will also modify objects' types into types that can be used for combining whole values
 and fraction values of different types
 The subtraction operator should effectivelydo the same thing as the addition operator.
 The equals operator and comparison operators should either assign the value of a new object to
 the current value in the wallet/class or determine if they are bigger or smaller values in the new object than
 in the current values in the wallet/class.
 The output stream operator should get the values in the wallet and return that value as a string
-The input stream operator should get the input from the user and assign it to the wallet or 
+The input stream operator should get the input from the user and assign it to the wallet or
 appropriate class so that it may be used later on in the program.
 */
 // Update whole and fractional parts
@@ -42,7 +42,7 @@ void Dollar::updateCurrencyVal()
 	{
 		wholeVal -= 1;
 		fractVal += 100;
-}
+	}
 }
 
 //Operator overload implementation

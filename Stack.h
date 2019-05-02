@@ -1,10 +1,12 @@
 // Template for the stack class
 
-#ifndef _STACK_
-#define _STACK_
-#include "List.h" //list class
+#ifndef STACK_H
+#define STACK_H
 
-template< class STACKTYPE >
+#include "List.h" 
+
+template <class STACKTYPE>
+
 class Stack : private List<STACKTYPE>
 {
 public:
@@ -38,4 +40,4 @@ public:
 
 
 #endif
-#pragma once
+

@@ -3,7 +3,7 @@
 *       Psuedocode Currency.cpp          *
 ******************************************
 Mutators and accessors
-- 
+-
 
 */
 #include "Currency.h"

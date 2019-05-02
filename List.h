@@ -1,9 +1,11 @@
 // Template for the List class
 
-#ifndef List.h
-#define List.h
+#ifndef LIST_H
+#define LIST_H
+
 #include <iostream>
 #include "Node.h"
+
 using namespace std;
 
 template <class ItemType>
@@ -32,7 +34,7 @@ public:
 
 // Default constructor
 template <class ItemType>
-List< ItemType >::List()
+List<ItemType>::List()
 	: firstPtr(0), lastPtr(0), length(0)
 {
 
@@ -45,7 +47,7 @@ List <ItemType>::~List()
 }
 
 template <class ItemType>
-bool List  ItemType>::insert(const ItemType &value, const int pos)
+bool List <ItemType>::insert(const ItemType &value, const int pos)
 {
 	Node <ItemType> *newPtr = getNewEntry(value);
 
@@ -96,7 +98,7 @@ bool List <ItemType>::remove(ItemType &value, const int pos)
 	{
 		if (pos == 0)
 		{
-			Node< ItemType > *tempPtr = firstPtr;
+			Node<ItemType> *tempPtr = firstPtr;
 
 
 			if (firstPtr == lastPtr)
@@ -138,8 +140,8 @@ void List <ItemType>::clear()
 {
 	if (!isEmpty())													// List is not empty
 	{
-		Node< ItemType > *currentPtr = firstPtr;
-		Node< ItemType > *tempPtr;
+		Node<ItemType> *currentPtr = firstPtr;
+		Node<ItemType> *tempPtr;
 
 		while (currentPtr != 0)										// delete remaining nodes
 		{
@@ -199,7 +201,7 @@ Node <ItemType> *List <ItemType>::getNewEntry(const ItemType &value)
 }
 
 // Display contents of List
-template< typename ItemType >
+template<typename ItemType>
 void List <ItemType>::print() const
 {
 	if (isEmpty()) 
@@ -222,4 +224,4 @@ void List <ItemType>::print() const
 }
 
 #endif
-#pragma once
+
